@@ -232,7 +232,7 @@ class CURLRequest extends Request
 	 *
 	 * @param string $username
 	 * @param string $password
-	 * @param string $type     basic or digest
+	 * @param string $type     basic, digest or ntlm
 	 *
 	 * @return $this
 	 */
@@ -600,6 +600,10 @@ class CURLRequest extends Request
 			{
 				$curlOptions[CURLOPT_HTTPAUTH] = CURLAUTH_DIGEST;
 			}
+            		elseif (! empty($config['auth'][2]) && strtolower($config['auth'][2]) === 'ntlm')
+            		{
+                		$curlOptions[CURLOPT_HTTPAUTH] = CURLAUTH_NTLM;
+            		} 
 			else
 			{
 				$curlOptions[CURLOPT_HTTPAUTH] = CURLAUTH_BASIC;
