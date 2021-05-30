@@ -194,11 +194,11 @@ You can pass in array as the value of the ``allow_redirects`` option to specify 
 auth
 ====
 
-Allows you to provide Authentication details for `HTTP Basic <https://www.ietf.org/rfc/rfc2069.txt>`_ and
-`Digest <https://www.ietf.org/rfc/rfc2069.txt>`_ and authentication. Your script may have to do extra to support
+Allows you to provide Authentication details for `HTTP Basic <https://www.ietf.org/rfc/rfc2069.txt>`_,
+`Digest <https://www.ietf.org/rfc/rfc2069.txt>`_ and NTLM and authentication. Your script may have to do extra to support
 Digest authentication - this simply passes the username and password along for you. The value must be an
 array where the first element is the username, and the second is the password. The third parameter should be
-the type of authentication to use, either ``basic`` or ``digest``::
+the type of authentication to use, either ``basic``, ``digest`` or ``ntlm``::
 
 	$client->request('GET', 'http://example.com', ['auth' => ['username', 'password', 'digest']]);
 
